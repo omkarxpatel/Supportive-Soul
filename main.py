@@ -154,7 +154,7 @@ async def depression(interaction: discord.Interaction):
     """
     Provides helpful resources for depression
     """
-    embed = adhd_resources()
+    embed = depression_resources()
     view = ViewResources()
 
     embed.set_footer(text=f"Requested by {interaction.user.name}")
