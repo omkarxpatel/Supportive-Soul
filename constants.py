@@ -114,7 +114,7 @@ SELF_HARM_RESOURCES = """
 # for suicide intent api
 HEADERS = {
     'Content-Type': 'application/x-www-form-urlencoded', 
-    'X-RapidAPI-Key': '9c82db8e43mshc1dd0168507f3ddp13180ajsn3fb29e8b87c2',
+    'X-RapidAPI-Key': '',
     'X-RapidAPI-Host': 'suicidal-ideation-detection.p.rapidapi.com',
 }
 INTENT_API_URL = 'https://suicidal-ideation-detection.p.rapidapi.com/api/v1/predictions'
