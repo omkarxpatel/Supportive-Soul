@@ -1,4 +1,4 @@
-Here is a quick overview of the mental health discord bot in markdown:
+Created for Hack United 2023 Hackathon - https://unitedhacks23.devpost.com/
 
 # Support Soul - A Mental Health Discord Bot
 
