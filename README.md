@@ -1,4 +1,4 @@
-Created for Hack United 2023 Hackathon - https://unitedhacks23.devpost.com/
+Created for Hack United 2023 Hackathon (3rd place) - https://unitedhacks23.devpost.com/
 
 # Support Soul - A Mental Health Discord Bot
 
