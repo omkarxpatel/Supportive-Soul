@@ -60,8 +60,8 @@ Clinical Depression is a mental health disorder characterized by persistently de
 The persistent feeling of sadness or loss of interest that characterizes major depression can lead to a range of behavioral and physical symptoms. These may include changes in sleep, appetite, energy level, concentration, daily behavior, or self-esteem. Depression can also be associated with thoughts of suicide.
 
 Status
-Very Common- Over 3 million US cases reported per year.
-Treatments- Can be treated by a medical professional. This condition is medium-term, and usually resolves within months.
+Very Common- Over 3 million US cases are reported per year.
+Treatments- Can be treated by a medical professional. This condition is medium-term and usually resolves within months.
 Notes: Medical diagnosis is required.
 """
 
@@ -107,6 +107,30 @@ SELF_HARM_RESOURCES = """
 - [Other Hotlines/Text Lines](https://teenlineonline.org/youth-yellow-pages/cutting-and-self-injury/ \"Hovertext\")
 """
 
+
+
+
+Schizophrenia_BASE = """
+Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population. When schizophrenia is active, symptoms can include delusions, hallucinations, disorganized speech, trouble with thinking and lack of motivation. However, with treatment, most symptoms of schizophrenia will greatly improve and the likelihood of a recurrence can be diminished.
+
+**Status**
+- Uncommon: Over 100 thousand cases are reported per year.
+- Treatments: lifelong treatment can help, but ADHD cannot be cured.
+- Notes: Medical diagnosis required.
+"""
+
+ADHD_RESOURCES = """
+- [ADHD Facts and more](https://www.aacap.org/AACAP/Families_and_Youth/Resource_Centers/ADHD_Resource_Center/Home.aspx \"Hovertext\")
+- [Types of ADHD](https://www.additudemag.com/slideshows/add-vs-adhd/#:~:text=ADHD%20is%20the%20official%2C%20medical,lack%20of%20focus%2C%20and%20forgetfulness. \"Hovertext\")
+- [CHADD Organization](https://chadd.org/ \"Hovertext\")
+- [CDC Article](https://www.cdc.gov/ncbddd/adhd/facts.html \"Hovertext\")
+"""
+
+ADHD_COPING = """
+- [Living with ADHD](https://www.verywellmind.com/living-well-with-adhd-20480 \"Hovertext\")
+- [80 Coping Strategies](https://www.additudemag.com/dealing-with-adhd-80-coping-strategies/ \"Hovertext\")
+- [For Parents](https://kidshealth.org/en/parents/adhd.html \"Hovertext\")
+"""
 
 
 
