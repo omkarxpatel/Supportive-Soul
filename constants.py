@@ -85,6 +85,30 @@ Hotlines
 
 
 
+
+Schizophrenia_BASE = """
+Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population. When schizophrenia is active, symptoms can include delusions, hallucinations, disorganized speech, trouble with thinking and lack of motivation. However, with treatment, most symptoms of schizophrenia will greatly improve and the likelihood of a recurrence can be diminished.
+
+**Status**
+- Uncommon: Over 100 thousand cases are reported per year.
+- Treatments: lifelong treatment may help, but Schizophrenia cannot be cured.
+- Notes: Medical diagnosis required.
+"""
+
+Schizophrenia_RESOURCES = """
+- [What is Schizophrenia?](https://www.psychiatry.org/patients-families/schizophrenia/what-is-schizophrenia#:~:text=Schizophrenia%20is%20a%20chronic%20brain,thinking%20and%20lack%20of%20motivation. \¨Hovertext\¨)
+- [Facts On Schizophrenia](https://www.nami.org/Press-Media/Press-Releases/1998/Facts-On-Schizophrenia#:~:text=Schizophrenia%20can%20affect%20anyone%20at,decisions%2C%20and%20relate%20to%20others. \"Hovertext\")
+"""
+
+ADHD_COPING = """
+- [Schizophrenia Treatment](https://www.webmd.com/schizophrenia/schizophrenia-therapy \"Hovertext\")
+- [Dealing with Schizophrenia](https://www.talkspace.com/mental-health/conditions/schizophrenia/how-to-cope/ \"Hovertext\")
+- [Schizophrenia for parents](https://www.rcpsych.ac.uk/mental-health/parents-and-young-people/information-for-parents-and-carers/schizophrenia-for-parents \"Hovertext\")
+"""
+
+
+
+
 SELF_HARM_BASE = """
 Nonsuicidal self-injury, often simply called self-harm, is the act of deliberately harming your own body, such as cutting or burning yourself. It's typically not meant as a suicide attempt. Rather, this type of self-injury is a harmful way to cope with emotional pain, intense anger and frustration.
 
@@ -107,30 +131,6 @@ SELF_HARM_RESOURCES = """
 - [Other Hotlines/Text Lines](https://teenlineonline.org/youth-yellow-pages/cutting-and-self-injury/ \"Hovertext\")
 """
 
-
-
-
-Schizophrenia_BASE = """
-Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population. When schizophrenia is active, symptoms can include delusions, hallucinations, disorganized speech, trouble with thinking and lack of motivation. However, with treatment, most symptoms of schizophrenia will greatly improve and the likelihood of a recurrence can be diminished.
-
-**Status**
-- Uncommon: Over 100 thousand cases are reported per year.
-- Treatments: lifelong treatment can help, but ADHD cannot be cured.
-- Notes: Medical diagnosis required.
-"""
-
-ADHD_RESOURCES = """
-- [ADHD Facts and more](https://www.aacap.org/AACAP/Families_and_Youth/Resource_Centers/ADHD_Resource_Center/Home.aspx \"Hovertext\")
-- [Types of ADHD](https://www.additudemag.com/slideshows/add-vs-adhd/#:~:text=ADHD%20is%20the%20official%2C%20medical,lack%20of%20focus%2C%20and%20forgetfulness. \"Hovertext\")
-- [CHADD Organization](https://chadd.org/ \"Hovertext\")
-- [CDC Article](https://www.cdc.gov/ncbddd/adhd/facts.html \"Hovertext\")
-"""
-
-ADHD_COPING = """
-- [Living with ADHD](https://www.verywellmind.com/living-well-with-adhd-20480 \"Hovertext\")
-- [80 Coping Strategies](https://www.additudemag.com/dealing-with-adhd-80-coping-strategies/ \"Hovertext\")
-- [For Parents](https://kidshealth.org/en/parents/adhd.html \"Hovertext\")
-"""
 
 
 
