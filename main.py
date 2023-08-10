@@ -109,6 +109,48 @@ def depression_resources():
     return embed
 
 
+def schizophrenia_resources():
+    embed = discord.Embed(timestamp=discord.utils.utcnow())
+    embed.title = "**Schizophrenia**"
+    embed.add_field(
+        name="**What is Schizophrenia?**",
+        value=SCHIZOPHRENIA_BASE,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Resources**",
+        value=SCHIZOPHRENIA_RESOURCES,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Coping with Schizophrenia**",
+        value=SCHIZOPHRENIA_COPING,
+        inline=False,
+    )
+    return embed
+    
+
+def bipolar_resources():
+    embed = discord.Embed(timestamp=discord.utils.utcnow())
+    embed.title = "**Bipolar Disorder**"
+    embed.add_field(
+        name="**What is Bipolar Disorder?**",
+        value=BIPOLAR_BASE,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Resources**",
+        value=BIPOLAR_RESOURCES,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Coping with Bipolar**",
+        value=BIPOLAR_COPING,
+        inline=False,
+    )
+    return embed
+    
+    
 def self_harm_resources():
     embed = discord.Embed(timestamp=discord.utils.utcnow())
     embed.title = "**Self Harm**"
@@ -161,6 +203,30 @@ async def depression(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, view=view)
 
 
+@bot.tree.command(name="schizophrenia")
+async def depression(interaction: discord.Interaction):
+    """
+    Provides helpful resources for depression
+    """
+    embed = schizophrenia_resources()
+    view = ViewResources()
+
+    embed.set_footer(text=f"Requested by {interaction.user.name}")
+    await interaction.response.send_message(embed=embed, view=view)
+    
+    
+    @bot.tree.command(name="bipolar")
+async def depression(interaction: discord.Interaction):
+    """
+    Provides helpful resources for depression
+    """
+    embed = bipolar_resources()
+    view = ViewResources()
+
+    embed.set_footer(text=f"Requested by {interaction.user.name}")
+    await interaction.response.send_message(embed=embed, view=view)
+    
+    
 @bot.tree.command(name="selfharm")
 async def selfharm(interaction: discord.Interaction):
     """
