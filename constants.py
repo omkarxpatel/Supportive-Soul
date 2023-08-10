@@ -86,7 +86,7 @@ Hotlines
 
 
 
-Schizophrenia_BASE = """
+SCHIZOPHRENIA_BASE = """
 Schizophrenia is a chronic brain disorder that affects less than one percent of the U.S. population. When schizophrenia is active, symptoms can include delusions, hallucinations, disorganized speech, trouble with thinking and lack of motivation. However, with treatment, most symptoms of schizophrenia will greatly improve and the likelihood of a recurrence can be diminished.
 
 **Status**
@@ -95,12 +95,12 @@ Schizophrenia is a chronic brain disorder that affects less than one percent of 
 - Notes: Medical diagnosis required.
 """
 
-Schizophrenia_RESOURCES = """
+SCHIZOPHRENIA_RESOURCES = """
 - [What Is Schizophrenia?](https://www.psychiatry.org/patients-families/schizophrenia/what-is-schizophrenia#:~:text=Schizophrenia%20is%20a%20chronic%20brain,thinking%20and%20lack%20of%20motivation. \¨Hovertext\¨)
 - [Facts On Schizophrenia](https://www.nami.org/Press-Media/Press-Releases/1998/Facts-On-Schizophrenia#:~:text=Schizophrenia%20can%20affect%20anyone%20at,decisions%2C%20and%20relate%20to%20others. \"Hovertext\")
 """
 
-Schizophrenia_COPING = """
+SCHIZOPHRENIA_COPING = """
 - [Schizophrenia Treatment](https://www.webmd.com/schizophrenia/schizophrenia-therapy \"Hovertext\")
 - [Dealing With Schizophrenia](https://www.talkspace.com/mental-health/conditions/schizophrenia/how-to-cope/ \"Hovertext\")
 - [Schizophrenia For parents](https://www.rcpsych.ac.uk/mental-health/parents-and-young-people/information-for-parents-and-carers/schizophrenia-for-parents \"Hovertext\")
@@ -109,7 +109,7 @@ Schizophrenia_COPING = """
 
 
 
-Bipolar_BASE = """
+BIPOLAR_BASE = """
 A disorder associated with episodes of mood swings ranging from depressive lows to manic highs.
 
 The exact cause of bipolar disorder isn’t known, but a combination of genetics, environment and altered brain structure and chemistry may play a role.
@@ -120,12 +120,12 @@ The exact cause of bipolar disorder isn’t known, but a combination of genetics
 - Notes: Medical diagnosis required.
 """
 
-Bipolar_RESOURCES = """
+BIPOLAR_RESOURCES = """
 - [What Are Bipolar Disorder?](https://www.psychiatry.org/patients-families/bipolar-disorders/what-are-bipolar-disorders. \¨Hovertext\¨)
 - [Myths And Facts](https://www.nami.org/Blogs/NAMI-Blog/May-2021/Myths-and-Facts-of-Bipolar-Disorder. \"Hovertext\")
 """
 
-Bipolar_COPING = """
+BIPOLAR_COPING = """
 - [Living With Bipolar](https://www.helpguide.org/articles/bipolar-disorder/living-with-bipolar-disorder.htm. \"Hovertext\")
 - [Coping With Bipolar](https://psychcentral.com/lib/self-help-strategies-for-bipolar-disorder. \"Hovertext\")
 - [Self-management For Bipolar](https://www.mind.org.uk/information-support/types-of-mental-health-problems/bipolar-disorder/self-managing-bipolar/ \"Hovertext\")
