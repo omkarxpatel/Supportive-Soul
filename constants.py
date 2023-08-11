@@ -30,7 +30,7 @@ Attention deficit hyperactivity disorder (ADHD) is a mental health disorder that
 ADHD often begins in childhood and can persist into adulthood. It may contribute to low self-esteem, troubled relationships, and difficulty at school or work.
 
 **Status**
-- Very Common: Over 3 million US cases reported per year.
+- Very Common: Over 3 million US cases are reported per year.
 - Treatments: Treatment can help, but ADHD cannot be cured.
 - Notes: Medical diagnosis required.
 """
@@ -170,5 +170,5 @@ INTENT_API_URL = 'https://suicidal-ideation-detection.p.rapidapi.com/api/v1/pred
 
 # Also reply to the message in the correct language (the language the message is in). 
 DETECTION_PROMPT = "I am going to attach the message of a discord user along with their username followed by a colon and then the message content. This message was flagged for self-harm and self-harm/intent. Craft a response that will encourage this user but keep it short and simple. Here is the message:\n\n"
-# CHATBOT_PROMPT = "In the following lines, im going to attatch a list of 10 messages, 5 sent by you and 5 sent by the person you are talking to. The messages in the list with the prefix of 'YOU:' are the ones sent by you. Craft response towards this user based off of their previous messages and your responses. Note, this user may be suicidal or have intent of self harm. Reply with a message to encourage this user to keep pushing but keep it short and simple.:\n\n"
+# CHATBOT_PROMPT = "In the following lines, I'm going to attach a list of 10 messages, 5 sent by you and 5 sent by the person you are talking to. The messages in the list with the prefix of 'YOU:' are the ones sent by you. Craft response towards this user based off of their previous messages and your responses. Note, this user may be suicidal or have intent of self harm. Reply with a message to encourage this user to keep pushing but keep it short and simple.:\n\n"
 CHATBOT_PROMPT = "I am going to attach the message of a discord user along with their username followed by a colon and then the message content. Note that this user may be suicidal or have intent of self harm. Craft a response that will encourage this user but keep it short and simple.\n\n"
