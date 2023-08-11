@@ -204,9 +204,9 @@ async def depression(interaction: discord.Interaction):
 
 
 @bot.tree.command(name="schizophrenia")
-async def depression(interaction: discord.Interaction):
+async def schizophrenia(interaction: discord.Interaction):
     """
-    Provides helpful resources for depression
+    Provides helpful resources for schizophrenia
     """
     embed = schizophrenia_resources()
     view = ViewResources()
@@ -216,9 +216,9 @@ async def depression(interaction: discord.Interaction):
     
     
     @bot.tree.command(name="bipolar")
-async def depression(interaction: discord.Interaction):
+async def bipolar(interaction: discord.Interaction):
     """
-    Provides helpful resources for depression
+    Provides helpful resources for bipolar
     """
     embed = bipolar_resources()
     view = ViewResources()
