@@ -115,7 +115,7 @@ A disorder associated with episodes of mood swings ranging from depressive lows 
 The exact cause of bipolar disorder isn’t known, but a combination of genetics, environment and altered brain structure and chemistry may play a role.
 
 **Status**
-- Common: Over 7 million US cases are reported per year.
+- Very common: Over 7 million US cases are reported per year.
 - Treatments: Treatment can help, but this condition can't be cured.
 - Notes: Medical diagnosis required.
 """
@@ -129,6 +129,32 @@ BIPOLAR_COPING = """
 - [Living With Bipolar](https://www.helpguide.org/articles/bipolar-disorder/living-with-bipolar-disorder.htm. \"Hovertext\")
 - [Coping With Bipolar](https://psychcentral.com/lib/self-help-strategies-for-bipolar-disorder. \"Hovertext\")
 - [Self-management For Bipolar](https://www.mind.org.uk/information-support/types-of-mental-health-problems/bipolar-disorder/self-managing-bipolar/ \"Hovertext\")
+"""
+
+
+
+
+Anxiety_BASE = """
+A mental health disorder characterized by feelings of worry, anxiety, or fear that are strong enough to interfere with one's daily activities.
+
+Symptoms include stress that's out of proportion to the impact of the event, inability to set aside worry, and restlessness.
+
+**Status**
+- Very Common: Over 2 million US cases are reported per year.
+- Treatments: Treatable by a medical professional.
+- Notes: Medical diagnosis not required.
+"""
+
+Anxiety_RESOURCES = """
+- [What Is Anxiety?](https://www.nimh.nih.gov/health/topics/anxiety-disorders \"Hovertext\")
+- [Generalized Anxiety Disorder](https://adaa.org/understanding-anxiety/generalized-anxiety-disorder-gad#:~:text=Generalized%20Anxiety%20Disorder%20(GAD)%20is,difficult%20to%20control%20their%20worry. \"Hovertext\")
+- [Anxiety Facts and more](https://www.mentalhelp.net/anxiety/facts-about-generalized-anxiety-disorder/ \"Hovertext\")
+"""
+
+Anxiety_COPING = """
+- [Coping with Anxiety](https://www.healthline.com/health/mental-health/how-to-cope-with-anxiety \"Hovertext\")
+- [Self-care for Anxiety](https://www.mind.org.uk/information-support/types-of-mental-health-problems/anxiety-and-panic-attacks/self-care/ \"Hovertext\")
+- [Anxiety Mangaement Strategies](https://www.beyondblue.org.au/mental-health/anxiety/treatments-for-anxiety/anxiety-management-strategies \"Hovertext\")
 """
 
 
