@@ -234,6 +234,18 @@ async def schizophrenia(interaction: discord.Interaction):
 
     embed.set_footer(text=f"Requested by {interaction.user.name}")
     await interaction.response.send_message(embed=embed, view=view)
+
+
+@bot.tree.command(name="anxiety")
+async def anxiety(interaction: discord.Interaction):
+    """
+    Provides helpful resources for schizophrenia
+    """
+    embed = anxiety_resources()
+    view = ViewResources()
+
+    embed.set_footer(text=f"Requested by {interaction.user.name}")
+    await interaction.response.send_message(embed=embed, view=view)
     
     
 @bot.tree.command(name="bipolar")
