@@ -665,8 +665,8 @@ async def send_flower(ctx):
 
 @bot.tree.command(name="assurance")
 async def send_assurance(ctx):
-    # Get a random affirmation from the list
-    affirmation = random.choice(assurance)
+    # Get a random assurance from the list
+    assurance = random.choice(assurance)
     await ctx.send(assurance)
 
 
