@@ -151,6 +151,27 @@ def bipolar_resources():
     return embed
     
     
+def anxiety_resources():
+    embed = discord.Embed(timestamp=discord.utils.utcnow())
+    embed.title = "**Anxiety Disorder**"
+    embed.add_field(
+        name="**What is Anxiety Disorder?**",
+        value=ANXIETY_BASE,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Resources**",
+        value=ANXIETY_RESOURCES,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Coping with Bipolar**",
+        value=ANXIETY_COPING,
+        inline=False,
+    )
+    return embed
+
+
 def self_harm_resources():
     embed = discord.Embed(timestamp=discord.utils.utcnow())
     embed.title = "**Self Harm**"
