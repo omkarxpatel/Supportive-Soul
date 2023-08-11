@@ -2,7 +2,7 @@ Created for Hack United 2023 Hackathon (3rd place) - https://unitedhacks23.devpo
 
 # Support Soul - A Mental Health Discord Bot
 
-Support Soul is a discord bot built to provide mental health resources and support within Discord servers. It was created for a hackathon project.
+Support Soul is a Discord bot built to provide mental health resources and support within Discord servers. It was created for a hackathon project.
 
 ## Features
 
@@ -26,6 +26,6 @@ Support Soul is built in Python using the Discord.py API wrapper. Key technical 
 
 - Discord slash commands and bot events for detection and interactions.
 
-- Colorama and Discord embeds for formatting messages.
+- Colorama and Discord embed for formatting messages.
 
 The goal is to create a bot that feels helpful and approachable while also keeping communities safe. Support Soul aims to provide an additional layer of care and moderation for mental health in Discord servers.
