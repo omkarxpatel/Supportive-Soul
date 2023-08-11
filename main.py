@@ -325,31 +325,11 @@ flowers = [
     "Hyacinth"
 ]
 
-# List of affirmative messages
-assurance = [
-    "You're doing great!",
-    "Keep up the good work!",
-    "You're amazing!",
-    "You've got this!",
-    "You're making progress!",
-    "You're an inspiration!",
-    "Believe in yourself!",
-    "You're capable of great things!",
-    "You're strong and resilient!",
-    "You're loved and appreciated!"
-]
-
 @bot.tree.command(name="flower")
 async def send_flower(ctx):
     # Get a random flower from the list
     flower = random.choice(flowers)
     await ctx.send(f"Here's a {flower} for you!")
-
-@bot.tree.command(name="assurance")
-async def send_assurance(ctx):
-    # Get a random assurance from the list
-    assurance_msg = random.choice(assurance)
-    await ctx.send(assurance_msg)
 
 @bot.tree.command(name="hug")
 async def hug(interaction: discord.Interaction):
