@@ -134,7 +134,7 @@ BIPOLAR_COPING = """
 
 
 
-Anxiety_BASE = """
+ANXIETY_BASE = """
 A mental health disorder characterized by feelings of worry, anxiety, or fear that are strong enough to interfere with one's daily activities.
 
 Symptoms include stress that's out of proportion to the impact of the event, inability to set aside worry, and restlessness.
@@ -145,13 +145,13 @@ Symptoms include stress that's out of proportion to the impact of the event, ina
 - Notes: Medical diagnosis not required.
 """
 
-Anxiety_RESOURCES = """
+ANXIETY_RESOURCES = """
 - [What Is Anxiety?](https://www.nimh.nih.gov/health/topics/anxiety-disorders \"Hovertext\")
 - [Generalized Anxiety Disorder](https://adaa.org/understanding-anxiety/generalized-anxiety-disorder-gad#:~:text=Generalized%20Anxiety%20Disorder%20(GAD)%20is,difficult%20to%20control%20their%20worry. \"Hovertext\")
 - [Anxiety Facts and more](https://www.mentalhelp.net/anxiety/facts-about-generalized-anxiety-disorder/ \"Hovertext\")
 """
 
-Anxiety_COPING = """
+ANXIETY_COPING = """
 - [Coping with Anxiety](https://www.healthline.com/health/mental-health/how-to-cope-with-anxiety \"Hovertext\")
 - [Self-care for Anxiety](https://www.mind.org.uk/information-support/types-of-mental-health-problems/anxiety-and-panic-attacks/self-care/ \"Hovertext\")
 - [Anxiety Mangaement Strategies](https://www.beyondblue.org.au/mental-health/anxiety/treatments-for-anxiety/anxiety-management-strategies \"Hovertext\")
