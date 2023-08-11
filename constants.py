@@ -112,7 +112,7 @@ SCHIZOPHRENIA_COPING = """
 BIPOLAR_BASE = """
 A disorder associated with episodes of mood swings ranging from depressive lows to manic highs.
 
-The exact cause of bipolar disorder isn’t known, but a combination of genetics, environment and altered brain structure and chemistry may play a role.
+The exact cause of bipolar disorder isn’t known, but a combination of genetics, environment-altered brain structure, and chemistry may play a role.
 
 **Status**
 - Very common: Over 7 million US cases are reported per year.
