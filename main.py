@@ -674,7 +674,7 @@ async def send_flower(ctx):
     await ctx.send(f"Here's a {flower} for you!")
 
 @bot.tree.command(name="assurance")
-async def send_affirmation(ctx):
+async def send_assurance(ctx):
     # Get a random affirmation from the list
     affirmation = random.choice(assurance)
     await ctx.send(assurance)
