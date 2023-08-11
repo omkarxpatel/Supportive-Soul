@@ -8,41 +8,37 @@ from discord import app_commands
 from discord.ext import commands
 from typing import Literal, Optional
 from utility.firebase import *
-
+from dotenv import load_dotenv
+from constants import *
+from colorama import Fore
+from discord.ext import commands
+from discord import Intents, ButtonStyle
+from discord.ui import View, Button
+from typing import Literal, Optional
+from utility.firebase import *
 from dotenv import load_dotenv
 
 load_dotenv()
-
 
 ##############################
 #     SETTING UP THE BOT     #
 ##############################
 
+intents = Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix=commands.when_mentioned_or("-"), intents=intents)
 
-class SupportSoul(commands.Bot):
-    def __init__(self):
-        intents = discord.Intents.default()
-        intents.message_content = True
+@bot.event
+async def on_ready():
+    print(
+        f"{Fore.GREEN}{bot.user.name} is Online - Version: {discord.__version__}{Fore.RESET}"
+    )
 
-        super().__init__(
-            command_prefix=commands.when_mentioned_or("-"), intents=intents
-        )
-
-    async def on_ready(self):
-        print(
-            f"{Fore.GREEN}{self.user.name} is Online - Version: {discord.__version__}{Fore.RESET}"
-        )
-
-
-bot = SupportSoul()
-
-
-##################################
+##############################
 #     MENTAL HEALTH COMMANDS     #
-##################################
+##############################
 
-
-class ResourceLinks(discord.ui.View):
+class ResourceLinks(View):
     def __init__(self):
         super().__init__()
         resources = {
@@ -54,261 +50,36 @@ class ResourceLinks(discord.ui.View):
         }
 
         for name, url in resources.items():
-            self.add_item(discord.ui.Button(label=name, url=url))
+            self.add_item(Button(label=name, url=url, style=ButtonStyle.link))
 
-
-def official_resources():
+def create_embed(title, base_value, resources_value, coping_value):
     embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Here are some resources that you may need!**"
-    embed.add_field(
-        name="",
-        value=RESOURCES,
-    )
+    embed.title = title
+    embed.add_field(name=base_value, value=resources_value, inline=False)
+    embed.add_field(name="**Coping**", value=coping_value, inline=False)
     return embed
 
+def create_resource_command(name, title, base, resources, coping):
+    @bot.tree.command(name=name)
+    async def command(interaction: discord.Interaction):
+        embed = create_embed(title, base, resources, coping)
+        view = ResourceLinks()
 
-def adhd_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**ADHD**"
-    embed.add_field(
-        name="**What is ADHD?**",
-        value=ADHD_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=ADHD_RESOURCES,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Coping with ADHD**",
-        value=ADHD_COPING,
-        inline=False,
-    )
-    return embed
+        embed.set_footer(text=f"Requested by {interaction.user.name}")
+        await interaction.response.send_message(embed=embed, view=view)
 
-
-def depression_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Clinical Depression**"
-    embed.add_field(
-        name="**What is Clinical Depression?**",
-        value=DEPRESSION_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=DEPRESSION_RESOURCES,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Coping with Depression**",
-        value=DEPRESSION_COPING,
-        inline=False,
-    )
-    return embed
-
-
-def schizophrenia_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Schizophrenia**"
-    embed.add_field(
-        name="**What is Schizophrenia?**",
-        value=SCHIZOPHRENIA_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=SCHIZOPHRENIA_RESOURCES,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Coping with Schizophrenia**",
-        value=SCHIZOPHRENIA_COPING,
-        inline=False,
-    )
-    return embed
-    
-
-def bipolar_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Bipolar Disorder**"
-    embed.add_field(
-        name="**What is Bipolar Disorder?**",
-        value=BIPOLAR_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=BIPOLAR_RESOURCES,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Coping with Bipolar**",
-        value=BIPOLAR_COPING,
-        inline=False,
-    )
-    return embed
-    
-    
-def anxiety_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Anxiety Disorder**"
-    embed.add_field(
-        name="**What is Anxiety Disorder?**",
-        value=ANXIETY_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=ANXIETY_RESOURCES,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Coping with Bipolar**",
-        value=ANXIETY_COPING,
-        inline=False,
-    )
-    return embed
-
-
-def PTSD_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Post-traumatic stress disorder (PTSD)**"
-    embed.add_field(
-        name="**What is PTSD?**",
-        value=PTSD_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=PTSD_RESOURCES,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Coping with PTSD**",
-        value=PTSD_COPING,
-        inline=False,
-    )
-    return embed
-
-
-def self_harm_resources():
-    embed = discord.Embed(timestamp=discord.utils.utcnow())
-    embed.title = "**Self Harm**"
-    embed.add_field(
-        name="**What is Self Harm?**",
-        value=SELF_HARM_BASE,
-        inline=False,
-    )
-    embed.add_field(
-        name="**Resources**",
-        value=SELF_HARM_RESOURCES,
-        inline=False,
-    )
-    return embed
-
-
-@bot.tree.command(name="resources")
-async def resources(interaction: discord.Interaction):
-    """
-    Sends a list of mental health resources to the user.
-
-    Provides a list of helpline numbers and websites that offer support for mental health, including suicide prevention hotlines, crisis text lines, and LGBTQ+ and veteran-specific resources.
-    """
-    embed = official_resources()
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=ResourceLinks())
-
-
-@bot.tree.command(name="adhd")
-async def adhd(interaction: discord.Interaction):
-    """
-    Provides helpful resources for ADHD
-    """
-    embed = adhd_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-
-
-@bot.tree.command(name="depression")
-async def depression(interaction: discord.Interaction):
-    """
-    Provides helpful resources for depression
-    """
-    embed = depression_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-
-
-@bot.tree.command(name="schizophrenia")
-async def schizophrenia(interaction: discord.Interaction):
-    """
-    Provides helpful resources for schizophrenia
-    """
-    embed = schizophrenia_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-    
-    
-@bot.tree.command(name="bipolar")
-async def bipolar(interaction: discord.Interaction):
-    """
-    Provides helpful resources for bipolar
-    """
-    embed = bipolar_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-    
-    
-@bot.tree.command(name="anxiety")
-async def anxiety(interaction: discord.Interaction):
-    """
-    Provides helpful resources for schizophrenia
-    """
-    embed = anxiety_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-
-
-@bot.tree.command(name="PTSD")
-async def PTSD(interaction: discord.Interaction):
-    """
-    Provides helpful resources for PTSD
-    """
-    embed = PTSD_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-
-
-@bot.tree.command(name="selfharm")
-async def selfharm(interaction: discord.Interaction):
-    """
-    Provides helpful resources for self-harm
-    """
-    embed = self_harm_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
-
+create_resource_command("resources", "**Here are some resources that you may need!**", "", RESOURCES, "")
+create_resource_command("adhd", "**ADHD**", "**What is ADHD?**", ADHD_BASE, ADHD_RESOURCES, ADHD_COPING)
+create_resource_command("depression", "**Clinical Depression**", "**What is Clinical Depression?**", DEPRESSION_BASE, DEPRESSION_RESOURCES, DEPRESSION_COPING)
+create_resource_command("schizophrenia", "**Schizophrenia**", "**What is Schizophrenia?**", SCHIZOPHRENIA_BASE, SCHIZOPHRENIA_RESOURCES, SCHIZOPHRENIA_COPING)
+create_resource_command("bipolar", "**Bipolar Disorder**", "**What is Bipolar Disorder?**", BIPOLAR_BASE, BIPOLAR_RESOURCES, BIPOLAR_COPING)
+create_resource_command("anxiety", "**Anxiety Disorder**", "**What is Anxiety Disorder?**", ANXIETY_BASE, ANXIETY_RESOURCES, ANXIETY_COPING)
+create_resource_command("PTSD", "**Post-traumatic stress disorder (PTSD)**", "**What is PTSD?**", PTSD_BASE, PTSD_RESOURCES, PTSD_COPING)
+create_resource_command("selfharm", "**Self Harm**", "**What is Self Harm?**", SELF_HARM_BASE, SELF_HARM_RESOURCES, "")
 
 #################################
 #     SETUP SERVER COMMANDS     #
 #################################
-
 
 @bot.tree.command(name="set_flag_channel")
 @app_commands.describe(channel="The channel to set as the flag channel")
@@ -334,35 +105,25 @@ async def set_flag_channel(
     except Exception as e:
         await interaction.response.send_message(e)
 
-
 @bot.tree.command(name="set_flagging")
 @app_commands.describe(value="Whether to turn on or off flagging")
 async def set_flagging(interaction: discord.Interaction, value: bool):
     """
     Sets whether to turn on or off flagging in the server.
     """
-    # if on_or_off.lower() in ["t", "true", "on"]:
-    # on_or_off = True
-    # else:
-    # on_or_off = False
     try:
         set_flagging = set_message_scanning_flag(str(interaction.guild_id), value)
 
         if set_flagging in [True, False]:
-            if value:
-                await interaction.response.send_message(
-                    f"Successfully turned **on** flagging"
-                )
-            else:
-                await interaction.response.send_message(
-                    f"Successfully turned **off** flagging"
-                )
+            status = "on" if value else "off"
+            await interaction.response.send_message(
+                f"Successfully turned **{status}** flagging"
+            )
         else:
             await interaction.response.send_message(set_flagging)
 
     except Exception as e:
         await interaction.response.send_message(e)
-
 
 @bot.tree.command(name="server_settings")
 async def server_settings(interaction: discord.Interaction):
@@ -380,18 +141,16 @@ async def server_settings(interaction: discord.Interaction):
         color=discord.Color.red(),
     )
     embed.add_field(
-        name=f"",
+        name="",
         value=f"Message Scanning: **{message_scanning}**\nLogging Channel: <#{logging_channel}>",
     )
     await interaction.response.send_message(embed=embed)
-
 
 ##################################
 #     MENTAL HEALTH LISTENER     #
 ##################################
 
 openai.api_key = os.getenv("OPENAI_KEY")
-
 
 class SuicidalIntentDetector:
     def __init__(self):
@@ -408,40 +167,9 @@ class SuicidalIntentDetector:
     def get_user_messages(self, user_id):
         return self.user_messages.get(user_id, [])
 
-
 detector = SuicidalIntentDetector()
 
-
-class ViewResources(discord.ui.View):
-    def __init__(self):
-        super().__init__()
-        self.value = None
-
-    @discord.ui.button(label="View Resources", style=discord.ButtonStyle.gray)
-    async def confirm(
-        self, interaction: discord.Interaction, button: discord.ui.Button
-    ):
-        embed = official_resources()
-        await interaction.response.send_message(embed=embed, view=ResourceLinks())
-        self.stop()
-
-class ChatBot(discord.ui.View):
-    def __init__(self):
-        super().__init__()
-        self.value = None
-
-    @discord.ui.button(label="Open A Chat", style=discord.ButtonStyle.gray)
-    async def confirm(self, interaction: discord.Interaction, button: discord.ui.Button):
-        try:
-            view = ViewResources()
-            await interaction.user.send("Hey {}, thanks for reaching out. Whats on your mind?".format(interaction.user.name), view=view)
-            await interaction.response.send_message("Check your dms!", ephemeral=True)
-            self.stop()
-            
-        except Exception as e:
-            await interaction.response.send_message("Try directly messaging me instead, an error occured: {}".format(e), ephemeral=True)
-
-class ChatGPT:
+class ChatBot:
     def __init__(self, api_key, model="gpt-3.5-turbo"):
         self.api_key = api_key
         self.model = model
@@ -462,9 +190,7 @@ class ChatGPT:
         except Exception as e:
             return f"Error: {str(e)}"
 
-
-chatbot = ChatGPT(os.getenv("OPENAI_KEY"))
-
+chatbot = ChatBot(os.getenv("OPENAI_KEY"))
 
 class Davinci:
     def __init__(self, api_key, model="text-davinci-003"):
@@ -483,9 +209,7 @@ class Davinci:
         except Exception as e:
             return f"Error: {str(e)}"
 
-
 detection_response = Davinci(os.getenv("OPENAI_KEY"))
-
 
 @bot.tree.command(name="chat")
 async def chat(interaction: discord.Interaction):
@@ -495,7 +219,6 @@ async def chat(interaction: discord.Interaction):
     view = ChatBot()
 
     await interaction.response.send_message("Click below to open a chat with me!", view=view)
-    
 
 @bot.event
 async def on_guild_join(guild):
@@ -503,117 +226,77 @@ async def on_guild_join(guild):
 
     # TODO setup on guild join config message using: guild.system_channel
 
-
 @bot.event
 async def on_message(message):
     """
     Scans every single message sent that is accessible to the bot for suicidal tendencies. If a message is flagged, more action will be taken upon that message & the author.
     """
-    await bot.process_commands(message)
-    # if message.channel.id == 1133522534223057016:
-    #     if message.author.id in [641069257140207616, 838974822288851005]: # for debugging
-    if not isinstance(message.channel, discord.DMChannel):
-        server_info = get_message_scanning_flag(str(message.guild.id))
-        # if isinstance(server_info, dict):
+    if isinstance(message.channel, discord.DMChannel):
+        return
+    
+    if not isinstance(message.author, discord.User) or message.author.bot:
+        return
 
-        if message.author.id != 1133522196917145662:
-            if server_info["flag_messages"] == True:
-                user_id = str(message.author.id)
+    if message.author.id == bot.user.id:
+        return
+    
+    server_info = get_message_scanning_flag(str(message.guild.id))
+    if server_info["flag_messages"]:
+        user_id = str(message.author.id)
+        result = detector.detect_intent(user_id, message.content)
+        try:
+            result["prompt"] = message.content
+        except:
+            result["prompt"] = "Blank"
+        user = get_user(str(message.author))
+        user["suicide_history"].append(result)
+        set_user(str(message.author), user)
 
-                result = detector.detect_intent(user_id, message.content)
+        result_categories = result["categories"]
+        self_harm = ["self-harm", "self-harm/intent", "self-harm/instructions"]
+        embed_content = []
 
-                try:
-                    result["prompt"] = message.content
-                except:
-                    result["prompt"] = "Blank"
-                user = get_user(str(message.author))
+        for item in self_harm:
+            if result_categories[item]:
+                embed_content.append(item)
 
-                user["suicide_history"].append(result)
-                set_user(str(message.author), user)
-                # insert_data_to_db(result, connection, "suicide-detection")
-
-                result_categories = result["categories"]
-                self_harm = ["self-harm", "self-harm/intent", "self-harm/instructions"]
-                embed_content = []
-
-                for item in self_harm:
-                    if result_categories[item] == True:
-                        embed_content.append(item)
-
-                if len(embed_content) > 0:
-                    embed = discord.Embed(
-                        timestamp=discord.utils.utcnow(),
-                        title="**A message has been flagged**",
-                        color=discord.Color.red(),
-                    )
-                    embed.add_field(
-                        name=f"Reason: `{', '.join(embed_content)}`",
-                        value=f"Message content: {message.content}\nMessage sender: {message.author.mention}\n\nMessage link: https://discord.com/channels/{message.guild.id}/{message.channel.id}/{message.id}",
-                    )
-                    channel = get_logging_channel(str(message.guild.id))
-                    try:
-                        channel = bot.get_channel(int(channel))
-                        await channel.send(embed=embed)
-                    except:
-                        pass
-
-                    response = detection_response.get_response(
-                        f"{message.author.name}: {message.content}", DETECTION_PROMPT
-                    )
-                    view = ChatBot()
-                    await message.reply(response, view=view)  # sends chatgpt crafted response
-                    embed = official_resources()
-                    await message.reply(embed=embed, view=ResourceLinks())
-    else:
-        if message.author != bot.user:
-            # Get a response from ChatGPT
-            history = ""
-            count = 0
-            async for history_message in message.channel.history(limit=None):
-                if history_message.author != bot.user:
-                    history += (
-                        history_message.author.name + ": " + history_message.content
-                    )
-                    count += 1
-                else:
-                    history += "YOU:" + history_message.content
-                if count == 10:
-                    break
-                history += "\n"
-
-            response = chatbot.get_response(
-                f"{message.author.name}: {message.content}", CHATBOT_PROMPT
+        if len(embed_content) > 0:
+            embed = discord.Embed(
+                timestamp=discord.utils.utcnow(),
+                title="**A message has been flagged**",
+                color=discord.Color.red(),
             )
-            view = ViewResources()
-            await message.reply(response, view=view)
+            embed.add_field(
+                name=f"Reason: `{', '.join(embed_content)}`",
+                value=f"Message content: {message.content}\nMessage sender: {message.author.mention}\n\nMessage link: https://discord.com/channels/{message.guild.id}/{message.channel.id}/{message.id}",
+            )
+            channel_id = get_logging_channel(str(message.guild.id))
+            try:
+                channel = bot.get_channel(int(channel_id))
+                await channel.send(embed=embed)
+            except:
+                pass
 
-            # await view.wait()
-            # if view.value is None:
-            #     pass
-            # elif view.value:
-            #     embed = official_resources()
-            #     await message.reply(embed=embed, view=ResourceLinks())
-
+            response = detection_response.get_response(
+                f"{message.author.name}: {message.content}", DETECTION_PROMPT
+            )
+            view = ChatBot()
+            await message.reply(response, view=view)  # sends chatgpt crafted response
+            embed = create_embed(
+                "**Here are some resources that you may need!**", "", RESOURCES, ""
+            )
+            await message.reply(embed=embed, view=ResourceLinks())
+            
+    await bot.process_commands(message)
 
 #########################
 #     MISC COMMANDS     #
 #########################
 
-
-@bot.event
-async def on_ready():
-    print(f'Bot is connected as {bot.user.name}')
-
-@bot.tree.command()
-async def error(ctx):
-    raise commands.CommandError("Error!")
-
 @bot.event
 async def on_command_error(ctx, error):
-    # Check if the error is an instance of CommandError
     if isinstance(error, commands.CommandError):
-        # Send a message
-
+        await ctx.send(error)
 
 @bot.tree.command(name="ping")
 async def ping(interaction: discord.Interaction):
@@ -627,7 +310,6 @@ async def ping(interaction: discord.Interaction):
     )
     embed.set_footer(text=f"Requested by {interaction.user.name}")
     await interaction.response.send_message(embed=embed)
-
 
 # List of flowers
 flowers = [
@@ -666,9 +348,8 @@ async def send_flower(ctx):
 @bot.tree.command(name="assurance")
 async def send_assurance(ctx):
     # Get a random assurance from the list
-    assurance = random.choice(assurance)
-    await ctx.send(assurance)
-
+    assurance_msg = random.choice(assurance)
+    await ctx.send(assurance_msg)
 
 @bot.tree.command(name="hug")
 async def hug(interaction: discord.Interaction):
@@ -681,7 +362,6 @@ async def hug(interaction: discord.Interaction):
     )
     await interaction.response.send_message(embed=embed)
 
-
 @bot.tree.command(name="affirmation")
 async def affirmation(interaction: discord.Interaction):
     await interaction.response.send_message(
@@ -690,7 +370,6 @@ async def affirmation(interaction: discord.Interaction):
             "Please write this user an affirmation.",
         )
     )
-
 
 @bot.tree.command(name="help")
 async def help(interaction: discord.Interaction):
@@ -731,10 +410,8 @@ async def help(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed)
 
-
 @bot.command()
 @commands.guild_only()
-# @commands.is_owner()
 async def sync(
     ctx: commands.Context,
     guilds: commands.Greedy[discord.Object],
@@ -772,11 +449,7 @@ async def sync(
 
     await ctx.send(f"Synced the tree to {ret}/{len(guilds)}.")
 
-
-#######################################
-
 try:
     bot.run(os.getenv("DISCORD_TOKEN"))
-
 finally:
     print(f"{Fore.RED}Support Soul is now Offline{Fore.RESET}")
