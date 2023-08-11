@@ -639,6 +639,47 @@ async def ping(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed)
 
 
+# List of flowers
+flowers = [
+    "Rose",
+    "Lily",
+    "Sunflower",
+    "Tulip",
+    "Daisy",
+    "Orchid",
+    "Carnation",
+    "Daffodil",
+    "Peony",
+    "Hyacinth"
+]
+
+# List of affirmative messages
+assurance = [
+    "You're doing great!",
+    "Keep up the good work!",
+    "You're amazing!",
+    "You've got this!",
+    "You're making progress!",
+    "You're an inspiration!",
+    "Believe in yourself!",
+    "You're capable of great things!",
+    "You're strong and resilient!",
+    "You're loved and appreciated!"
+]
+
+@bot.tree.command(name="flower")
+async def send_flower(ctx):
+    # Get a random flower from the list
+    flower = random.choice(flowers)
+    await ctx.send(f"Here's a {flower} for you!")
+
+@bot.tree.command(name="assurance")
+async def send_affirmation(ctx):
+    # Get a random affirmation from the list
+    affirmation = random.choice(assurance)
+    await ctx.send(assurance)
+
+
 @bot.tree.command(name="hug")
 async def hug(interaction: discord.Interaction):
     """
@@ -659,58 +700,6 @@ async def affirmation(interaction: discord.Interaction):
             "Please write this user an affirmation.",
         )
     )
-
-
-import discord
-import random
-from discord.ext import commands
-
-# Create bot instance
-bot = commands.Bot(command_prefix='!')
-
-# List of flowers
-flowers = [
-    "Rose",
-    "Lily",
-    "Sunflower",
-    "Tulip",
-    "Daisy",
-    "Orchid",
-    "Carnation",
-    "Daffodil",
-    "Peony",
-    "Hyacinth"
-]
-
-# List of affirmative messages
-affirmations = [
-    "You're doing great!",
-    "Keep up the good work!",
-    "You're amazing!",
-    "You've got this!",
-    "You're making progress!",
-    "You're an inspiration!",
-    "Believe in yourself!",
-    "You're capable of great things!",
-    "You're strong and resilient!",
-    "You're loved and appreciated!"
-]
-
-@bot.event
-async def on_ready():
-    print("Bot is ready")
-
-@bot.command(name="flower")
-async def send_flower(ctx):
-    # Get a random flower from the list
-    flower = random.choice(flowers)
-    await ctx.send(f"Here's a {flower} for you!")
-
-@bot.command(name="affirmation")
-async def send_affirmation(ctx):
-    # Get a random affirmation from the list
-    affirmation = random.choice(affirmations)
-    await ctx.send(affirmation)
 
 
 @bot.tree.command(name="help")
