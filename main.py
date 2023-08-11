@@ -309,31 +309,6 @@ async def selfharm(interaction: discord.Interaction):
 #     SETUP SERVER COMMANDS     #
 #################################
 
-python
-import discord
-from discord.ext import commands
-
-intents = discord.Intents.default()
-
-intents.typing = False
-intents.presences = False
-
-bot = commands.Bot(command_prefix='!', intents=intents)
-
-@bot.event
-async def on_ready():
-    print(f'Bot is connected as {bot.user.name}')
-
-@bot.command()
-async def error(ctx):
-    raise commands.CommandError("This is a custom error message!")
-
-@bot.event
-async def on_command_error(ctx, error):
-    # Check if the error is an instance of CommandError
-    if isinstance(error, commands.CommandError):
-        # Send a message
-
 
 @bot.tree.command(name="set_flag_channel")
 @app_commands.describe(channel="The channel to set as the flag channel")
@@ -623,6 +598,31 @@ async def on_message(message):
 #########################
 #     MISC COMMANDS     #
 #########################
+
+
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+
+intents.typing = False
+intents.presences = False
+
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Bot is connected as {bot.user.name}')
+
+@bot.tree.command()
+async def error(ctx):
+    raise commands.CommandError("Error!")
+
+@bot.event
+async def on_command_error(ctx, error):
+    # Check if the error is an instance of CommandError
+    if isinstance(error, commands.CommandError):
+        # Send a message
 
 
 @bot.tree.command(name="ping")
