@@ -215,7 +215,7 @@ async def schizophrenia(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, view=view)
     
     
-    @bot.tree.command(name="bipolar")
+@bot.tree.command(name="bipolar")
 async def bipolar(interaction: discord.Interaction):
     """
     Provides helpful resources for bipolar
