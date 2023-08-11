@@ -102,8 +102,8 @@ SCHIZOPHRENIA_RESOURCES = """
 
 SCHIZOPHRENIA_COPING = """
 - [Schizophrenia Treatment](https://www.webmd.com/schizophrenia/schizophrenia-therapy \"Hovertext\")
-- [Dealing With Schizophrenia](https://www.talkspace.com/mental-health/conditions/schizophrenia/how-to-cope/ \"Hovertext\")
-- [Schizophrenia For parents](https://www.rcpsych.ac.uk/mental-health/parents-and-young-people/information-for-parents-and-carers/schizophrenia-for-parents \"Hovertext\")
+- [Dealing with Schizophrenia](https://www.talkspace.com/mental-health/conditions/schizophrenia/how-to-cope/ \"Hovertext\")
+- [Schizophrenia for parents](https://www.rcpsych.ac.uk/mental-health/parents-and-young-people/information-for-parents-and-carers/schizophrenia-for-parents \"Hovertext\")
 """
 
 
@@ -121,14 +121,14 @@ The exact cause of bipolar disorder isn’t known, but a combination of genetics
 """
 
 BIPOLAR_RESOURCES = """
-- [What Are Bipolar Disorder?](https://www.psychiatry.org/patients-families/bipolar-disorders/what-are-bipolar-disorders. \¨Hovertext\¨)
-- [Myths And Facts](https://www.nami.org/Blogs/NAMI-Blog/May-2021/Myths-and-Facts-of-Bipolar-Disorder. \"Hovertext\")
+- [What are Bipolar Disorder?](https://www.psychiatry.org/patients-families/bipolar-disorders/what-are-bipolar-disorders. \¨Hovertext\¨)
+- [Myths and Facts](https://www.nami.org/Blogs/NAMI-Blog/May-2021/Myths-and-Facts-of-Bipolar-Disorder. \"Hovertext\")
 """
 
 BIPOLAR_COPING = """
-- [Living With Bipolar](https://www.helpguide.org/articles/bipolar-disorder/living-with-bipolar-disorder.htm. \"Hovertext\")
-- [Coping With Bipolar](https://psychcentral.com/lib/self-help-strategies-for-bipolar-disorder. \"Hovertext\")
-- [Self-management For Bipolar](https://www.mind.org.uk/information-support/types-of-mental-health-problems/bipolar-disorder/self-managing-bipolar/ \"Hovertext\")
+- [Living with Bipolar](https://www.helpguide.org/articles/bipolar-disorder/living-with-bipolar-disorder.htm. \"Hovertext\")
+- [Coping with Bipolar](https://psychcentral.com/lib/self-help-strategies-for-bipolar-disorder. \"Hovertext\")
+- [Self-management for Bipolar](https://www.mind.org.uk/information-support/types-of-mental-health-problems/bipolar-disorder/self-managing-bipolar/ \"Hovertext\")
 """
 
 
@@ -146,7 +146,7 @@ Symptoms include stress that's out of proportion to the impact of the event, ina
 """
 
 ANXIETY_RESOURCES = """
-- [What Is Anxiety?](https://www.nimh.nih.gov/health/topics/anxiety-disorders \"Hovertext\")
+- [What is Anxiety?](https://www.nimh.nih.gov/health/topics/anxiety-disorders \"Hovertext\")
 - [Generalized Anxiety Disorder](https://adaa.org/understanding-anxiety/generalized-anxiety-disorder-gad#:~:text=Generalized%20Anxiety%20Disorder%20(GAD)%20is,difficult%20to%20control%20their%20worry. \"Hovertext\")
 - [Anxiety Facts and more](https://www.mentalhelp.net/anxiety/facts-about-generalized-anxiety-disorder/ \"Hovertext\")
 """
@@ -155,6 +155,32 @@ ANXIETY_COPING = """
 - [Coping with Anxiety](https://www.healthline.com/health/mental-health/how-to-cope-with-anxiety \"Hovertext\")
 - [Self-care for Anxiety](https://www.mind.org.uk/information-support/types-of-mental-health-problems/anxiety-and-panic-attacks/self-care/ \"Hovertext\")
 - [Anxiety Mangaement Strategies](https://www.beyondblue.org.au/mental-health/anxiety/treatments-for-anxiety/anxiety-management-strategies \"Hovertext\")
+"""
+
+
+
+
+PTSD_BASE = """
+Post-traumatic stress disorder is a disorder characterized by failure to recover after experiencing or witnessing a terrifying event.
+
+The condition may last months or years, with triggers that can bring back memories of the trauma accompanied by intense emotional and physical reactions.
+
+**Status**
+- Very Common: Over 2 million US cases are reported per year.
+- Treatments: Treatable by a medical professional.
+- Notes: Medical diagnosis required.
+"""
+
+PTSD_RESOURCES = """
+- [Common Symptoms of PTSD](https://www.mind.org.uk/information-support/types-of-mental-health-problems/post-traumatic-stress-disorder-ptsd-and-complex-ptsd/symptoms/ \"Hovertext\")
+- [What is PTSD?](https://www.psychiatry.org/patients-families/ptsd/what-is-ptsd \"Hovertext\")
+- [Important Facts and Statistics About PTSD](https://www.therecoveryvillage.com/mental-health/ptsd/ptsd-statistics/ \"Hovertext\")
+"""
+
+PTSD_COPING = """
+- [9 Healthy Coping Skills for PTSD](https://www.verywellmind.com/ways-of-coping-with-anxiety-2797619 \"Hovertext\")
+- [Self-care for PTSD](https://www.mind.org.uk/information-support/types-of-mental-health-problems/post-traumatic-stress-disorder-ptsd-and-complex-ptsd/self-care/ \"Hovertext\")
+- [How To Deal with Trauma](https://thiswayup.org.au/learning-hub/post-traumatic-stress-explained/ \"Hovertext\")
 """
 
 
