@@ -172,6 +172,27 @@ def anxiety_resources():
     return embed
 
 
+def PTSD_resources():
+    embed = discord.Embed(timestamp=discord.utils.utcnow())
+    embed.title = "**Post-traumatic stress disorder (PTSD)**"
+    embed.add_field(
+        name="**What is PTSD?**",
+        value=PTSD_BASE,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Resources**",
+        value=PTSD_RESOURCES,
+        inline=False,
+    )
+    embed.add_field(
+        name="**Coping with PTSD**",
+        value=PTSD_COPING,
+        inline=False,
+    )
+    return embed
+
+
 def self_harm_resources():
     embed = discord.Embed(timestamp=discord.utils.utcnow())
     embed.title = "**Self Harm**"
@@ -234,18 +255,6 @@ async def schizophrenia(interaction: discord.Interaction):
 
     embed.set_footer(text=f"Requested by {interaction.user.name}")
     await interaction.response.send_message(embed=embed, view=view)
-
-
-@bot.tree.command(name="anxiety")
-async def anxiety(interaction: discord.Interaction):
-    """
-    Provides helpful resources for schizophrenia
-    """
-    embed = anxiety_resources()
-    view = ViewResources()
-
-    embed.set_footer(text=f"Requested by {interaction.user.name}")
-    await interaction.response.send_message(embed=embed, view=view)
     
     
 @bot.tree.command(name="bipolar")
@@ -260,10 +269,34 @@ async def bipolar(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed, view=view)
     
     
+@bot.tree.command(name="anxiety")
+async def anxiety(interaction: discord.Interaction):
+    """
+    Provides helpful resources for schizophrenia
+    """
+    embed = anxiety_resources()
+    view = ViewResources()
+
+    embed.set_footer(text=f"Requested by {interaction.user.name}")
+    await interaction.response.send_message(embed=embed, view=view)
+
+
+@bot.tree.command(name="PTSD")
+async def PTSD(interaction: discord.Interaction):
+    """
+    Provides helpful resources for PTSD
+    """
+    embed = PTSD_resources()
+    view = ViewResources()
+
+    embed.set_footer(text=f"Requested by {interaction.user.name}")
+    await interaction.response.send_message(embed=embed, view=view)
+
+
 @bot.tree.command(name="selfharm")
 async def selfharm(interaction: discord.Interaction):
     """
-    Provides helpful resources for self harm
+    Provides helpful resources for self-harm
     """
     embed = self_harm_resources()
     view = ViewResources()
