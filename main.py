@@ -69,13 +69,13 @@ def create_resource_command(name, title, base, resources, coping):
         await interaction.response.send_message(embed=embed, view=view)
 
 create_resource_command("resources", "**Here are some resources that you may need!**", "", RESOURCES, "")
-create_resource_command("adhd", "**ADHD**", "**What is ADHD?**", ADHD_BASE, ADHD_RESOURCES, ADHD_COPING)
-create_resource_command("depression", "**Clinical Depression**", "**What is Clinical Depression?**", DEPRESSION_BASE, DEPRESSION_RESOURCES, DEPRESSION_COPING)
-create_resource_command("schizophrenia", "**Schizophrenia**", "**What is Schizophrenia?**", SCHIZOPHRENIA_BASE, SCHIZOPHRENIA_RESOURCES, SCHIZOPHRENIA_COPING)
-create_resource_command("bipolar", "**Bipolar Disorder**", "**What is Bipolar Disorder?**", BIPOLAR_BASE, BIPOLAR_RESOURCES, BIPOLAR_COPING)
-create_resource_command("anxiety", "**Anxiety Disorder**", "**What is Anxiety Disorder?**", ANXIETY_BASE, ANXIETY_RESOURCES, ANXIETY_COPING)
-create_resource_command("PTSD", "**Post-traumatic stress disorder (PTSD)**", "**What is PTSD?**", PTSD_BASE, PTSD_RESOURCES, PTSD_COPING)
-create_resource_command("selfharm", "**Self Harm**", "**What is Self Harm?**", SELF_HARM_BASE, SELF_HARM_RESOURCES, "")
+create_resource_command("adhd", "**ADHD**", ADHD_BASE, ADHD_RESOURCES, ADHD_COPING)
+create_resource_command("depression", "**Clinical Depression**", DEPRESSION_BASE, DEPRESSION_RESOURCES, DEPRESSION_COPING)
+create_resource_command("schizophrenia", "**Schizophrenia**", SCHIZOPHRENIA_BASE, SCHIZOPHRENIA_RESOURCES, SCHIZOPHRENIA_COPING)
+create_resource_command("bipolar", "**Bipolar Disorder**", BIPOLAR_BASE, BIPOLAR_RESOURCES, BIPOLAR_COPING)
+create_resource_command("anxiety", "**Anxiety Disorder**", ANXIETY_BASE, ANXIETY_RESOURCES, ANXIETY_COPING)
+create_resource_command("PTSD", "**Post-traumatic stress disorder (PTSD)**", PTSD_BASE, PTSD_RESOURCES, PTSD_COPING)
+create_resource_command("selfharm", "**Self Harm**", SELF_HARM_BASE, SELF_HARM_RESOURCES, "")
 
 #################################
 #     SETUP SERVER COMMANDS     #
