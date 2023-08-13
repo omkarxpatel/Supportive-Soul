@@ -74,7 +74,7 @@ create_resource_command("depression", "**Clinical Depression**", DEPRESSION_BASE
 create_resource_command("schizophrenia", "**Schizophrenia**", SCHIZOPHRENIA_BASE, SCHIZOPHRENIA_RESOURCES, SCHIZOPHRENIA_COPING)
 create_resource_command("bipolar", "**Bipolar Disorder**", BIPOLAR_BASE, BIPOLAR_RESOURCES, BIPOLAR_COPING)
 create_resource_command("anxiety", "**Anxiety Disorder**", ANXIETY_BASE, ANXIETY_RESOURCES, ANXIETY_COPING)
-create_resource_command("PTSD", "**Post-traumatic stress disorder (PTSD)**", PTSD_BASE, PTSD_RESOURCES, PTSD_COPING)
+create_resource_command("ptsd", "**Post-traumatic stress disorder**", PTSD_BASE, PTSD_RESOURCES, PTSD_COPING)
 create_resource_command("selfharm", "**Self Harm**", SELF_HARM_BASE, SELF_HARM_RESOURCES, "")
 
 #################################
