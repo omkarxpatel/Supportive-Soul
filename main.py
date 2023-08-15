@@ -724,7 +724,7 @@ async def sync(
 ##################
 
 
-
+openai.api_key = os.getenv("OPENAI_KEY")
 
 @client.event
 async def on_ready():
