@@ -1,11 +1,11 @@
 
 # Support Soul - A Mental Health Discord Bot
 
-Support Soul is a Discord bot built to provide mental health resources and support within Discord servers. It was created for a hackathon project.
+Support Soul is a Discord bot built to provide mental health resources and support within Discord servers.
 
 ## Features
 
-- **Mental Health Resources** - Users can access lists of mental health resources for issues like depression, ADHD, self-harm etc. Just type `-resources` to get started.
+- **Mental Health Resources** - Users can access lists of mental health resources for issues like depression, ADHD, self-harm etc. Just type `/help` to get started.
 
 - **Self-Harm Message Flagging** - The bot scans messages in the server for signs of self-harm intent. If detected, it flags the message to a logging channel and provides the user with mental health resources.
 
