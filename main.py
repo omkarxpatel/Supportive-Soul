@@ -305,6 +305,8 @@ async def ptsd(interaction: discord.Interaction):
 
     embed.set_footer(text=f"Requested by {interaction.user.name}")
     await interaction.response.send_message(embed=embed, view=view)
+
+
 #################################
 #     SETUP SERVER COMMANDS     #
 #################################
@@ -715,6 +717,77 @@ async def sync(
             ret += 1
 
     await ctx.send(f"Synced the tree to {ret}/{len(guilds)}.")
+
+
+###################
+#     TRIVIA     #
+##################
+
+
+OPENAI_API_KEY = 'YOUR_OPENAI_API_KEY'
+openai.api_key = OPENAI_API_KEY
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print(f'Logged in as {client.user.name} ({client.user.id})')
+    print('------')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('!trivia'):
+        await start_trivia_game(message.channel)
+
+async def start_trivia_game(channel):
+    # Generate a trivia question using ChatGPT
+    question_prompt = "What is a trivia question about mental health or health in general?"
+    question = generate_chatgpt_response(question_prompt)
+
+    # Generate answer options using ChatGPT
+    options_prompt = "What are some answer options for the following question: " + question + "?"
+    options = generate_chatgpt_response(options_prompt)
+
+    # Send the question to the channel
+    await channel.send(question)
+
+    # Send answer options
+    await channel.send(f'Options:\n{options}')
+
+    # Function to check if the user's answer is correct
+    def check_answer(m):
+        return m.author != client.user and m.channel == channel
+
+    # Wait for user's answer
+    try:
+        user_response = await client.wait_for('message', check=check_answer, timeout=30.0)
+    except asyncio.TimeoutError:
+        await channel.send('Time is up! The correct answer was: ' + get_correct_answer(question))
+    else:
+        if user_response.content.lower() == get_correct_answer(question).lower():
+            await channel.send('Correct answer!')
+        else:
+            await channel.send('Wrong answer! The correct answer was: ' + get_correct_answer(question))
+
+def generate_chatgpt_response(prompt):
+    response = openai.Completion.create(
+        engine='text-davinci-003',
+        prompt=prompt,
+        max_tokens=50,
+        n=1,
+        stop=None,
+        temperature=0.7
+    )
+    return response.choices[0].text.strip()
+
+def get_correct_answer(question):
+    # Implement logic to retrieve the correct answer based on the generated question
+    # You can use a separate function or a database to map questions to answers
+    # For simplicity, let's assume the correct answer is always 'Option A'
+    return 'Option A'
 
 
 #######################################
