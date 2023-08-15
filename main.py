@@ -724,10 +724,7 @@ async def sync(
 ##################
 
 
-OPENAI_API_KEY = 'YOUR_OPENAI_API_KEY'
-openai.api_key = OPENAI_API_KEY
 
-client = discord.Client()
 
 @client.event
 async def on_ready():
@@ -761,7 +758,7 @@ async def start_trivia_game(channel):
     def check_answer(m):
         return m.author != client.user and m.channel == channel
 
-    # Wait for user's answer
+    # Wait for the user's answer
     try:
         user_response = await client.wait_for('message', check=check_answer, timeout=30.0)
     except asyncio.TimeoutError:
