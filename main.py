@@ -2,6 +2,7 @@ import os
 import random
 import openai
 import discord
+import asyncio
 from constants import *
 from colorama import Fore
 from discord import app_commands
@@ -719,48 +720,27 @@ async def sync(
     await ctx.send(f"Synced the tree to {ret}/{len(guilds)}.")
 
 
-###################
+##################
 #     TRIVIA     #
 ##################
 
 
-openai.api_key = os.getenv("OPENAI_KEY")
-
-@client.event
-async def on_ready():
-    print(f'Logged in as {client.user.name} ({client.user.id})')
-    print('------')
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('!trivia'):
-        await start_trivia_game(message.channel)
-
 async def start_trivia_game(channel):
-    # Generate a trivia question using ChatGPT
     question_prompt = "What is a trivia question about mental health or health in general?"
     question = generate_chatgpt_response(question_prompt)
 
-    # Generate answer options using ChatGPT
     options_prompt = "What are some answer options for the following question: " + question + "?"
     options = generate_chatgpt_response(options_prompt)
 
-    # Send the question to the channel
     await channel.send(question)
-
-    # Send answer options
     await channel.send(f'Options:\n{options}')
 
-    # Function to check if the user's answer is correct
     def check_answer(m):
-        return m.author != client.user and m.channel == channel
+        return m.author != bot.user and m.channel == channel
 
     # Wait for the user's answer
     try:
-        user_response = await client.wait_for('message', check=check_answer, timeout=30.0)
+        user_response = await bot.wait_for('message', check=check_answer, timeout=30.0)
     except asyncio.TimeoutError:
         await channel.send('Time is up! The correct answer was: ' + get_correct_answer(question))
     else:
@@ -781,9 +761,6 @@ def generate_chatgpt_response(prompt):
     return response.choices[0].text.strip()
 
 def get_correct_answer(question):
-    # Implement logic to retrieve the correct answer based on the generated question
-    # You can use a separate function or a database to map questions to answers
-    # For simplicity, let's assume the correct answer is always 'Option A'
     return 'Option A'
 
 
